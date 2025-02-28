@@ -1,0 +1,18 @@
+#login-title {
+    font-weight: bold;
+    font-size: 34px;
+    padding-bottom: 22px;
+}
+
+#login-card {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.login-btn-container {
+    margin-top: 50px;
+    font-size: 22px;
+
+    .login-btn {
+        border-radius: 12px;
+    }
+}
