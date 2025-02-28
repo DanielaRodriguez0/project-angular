@@ -1,0 +1,23 @@
+#container {
+    margin-top: 50px;
+}
+
+#list-title {
+    font-size: 40px;
+}
+
+
+.flex-col {
+    margin-top: 26px;
+}
+
+th {
+    font-size: large;
+    font-weight: bold;
+    color: black !important;
+}
+
+td {
+    font-size: larger;
+    color: black !important
+}

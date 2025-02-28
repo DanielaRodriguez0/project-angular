@@ -1,0 +1,88 @@
+<div class="container mx-auto px-4" id="container">
+  <h3 class="text-lg font-bold text-gray-800 dark:text-black" id="list-title">
+    Lista
+  </h3>
+  <div class="flex flex-col">
+    <div class="-m-1.5 overflow-x-auto">
+      <div class="p-1.5 min-w-full inline-block align-middle">
+        <div class="overflow-hidden">
+          <table
+            class="min-w-full divide-y divide-gray-200 dark:divide-neutral-700"
+          >
+            <thead>
+              <tr>
+                <th
+                  scope="col"
+                  class="px-6 py-3 text-start text-xs font-medium text-gray-900 uppercase dark:text-neutral-500"
+                >
+                  Position
+                </th>
+                <th
+                  scope="col"
+                  class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase dark:text-neutral-500"
+                >
+                  Name
+                </th>
+                <th
+                  scope="col"
+                  class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase dark:text-neutral-500"
+                >
+                  Weight
+                </th>
+                <th
+                  scope="col"
+                  class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase dark:text-neutral-500"
+                >
+                  Symbol
+                </th>
+                <th
+                  scope="col"
+                  class="px-6 py-3 text-end text-xs font-medium text-gray-500 uppercase dark:text-neutral-500"
+                >
+                  Action
+                </th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-200 dark:divide-neutral-700">
+              @for (item of ELEMENT_DATA; track item) {
+              <tr class="hover:bg-gray-100 dark:hover:bg-indigo-100">
+                <td
+                  class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-neutral-200"
+                >
+                  {{ item.position }}
+                </td>
+
+                <td
+                  class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200"
+                >
+                  {{ item.name }}
+                </td>
+                <td
+                  class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200"
+                >
+                  {{ item.symbol }}
+                </td>
+                <td
+                  class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200"
+                >
+                  {{ item.weight }}
+                </td>
+                <td
+                  class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium"
+                >
+                  <button
+                    type="button"
+                    class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                  >
+                    Ver detalle
+                  </button>
+                </td>
+              </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
