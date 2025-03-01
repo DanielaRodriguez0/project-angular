@@ -1,0 +1,21 @@
+#container {
+    padding-top: 86px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.details {
+    padding-top: 20px;
+}
+
+.details-content{
+    padding: 10px 0 40px 20px;
+    min-width: 500px;
+    max-width: 800px;
+}
+
+h4 {
+    padding: 10px 0 20px 0;
+}
