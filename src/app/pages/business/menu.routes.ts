@@ -1,7 +1,6 @@
 import { Routes } from '@angular/router';
 import { ListComponent } from './list/list.component';
-import { DetailsComponent } from './details/details.component';
-
+import { DetailComponent } from './detail/detail.component';
 
 export const MENU_ROUTES: Routes = [
     {
@@ -10,7 +9,7 @@ export const MENU_ROUTES: Routes = [
     },
     {
         path: 'list/:id/details',
-        component: DetailsComponent
+        component: DetailComponent
     },
     {
         path: '',

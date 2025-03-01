@@ -1,17 +1,17 @@
-import { Component, inject, Input, OnDestroy, OnInit } from '@angular/core';
-import { DetailsService } from '../../services/details.service';
-import { Subscription, take } from 'rxjs';
-import { Detail } from '../../core/detail';
+import { Component, inject, Input } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { DetailService } from '../../../services/detail.service';
+import { Subscription, take } from 'rxjs';
+import { Detail } from '../../../core/detail.interface';
 
 @Component({
-  selector: 'app-details',
+  selector: 'app-detail',
   imports: [RouterModule],
-  templateUrl: './details.component.html',
-  styleUrl: './details.component.css',
+  templateUrl: './detail.component.html',
+  styleUrl: './detail.component.css'
 })
-export class DetailsComponent implements OnInit, OnDestroy {
-  private readonly detailService = inject(DetailsService);
+export class DetailComponent {
+  private readonly detailService: DetailService = inject(DetailService);
   private detailSubscription: Subscription = new Subscription();
   detailsData!: Detail;
 

@@ -1,14 +1,14 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
-import { Observable } from 'rxjs';
-import { Detail } from '../core/detail';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AuthService } from './auth.service';
+import { Detail } from '../core/detail.interface';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
-export class DetailsService {
+export class DetailService {
   private detailsUrl = `${environment.apiUrl}/anonimizacion`;
   private _httpClient: HttpClient = inject(HttpClient);
   private readonly authService: AuthService = inject(AuthService);
