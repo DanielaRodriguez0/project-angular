@@ -31,7 +31,7 @@ export class ListComponent {
         error: (error) => {
           Swal.fire({
             title: 'Oops...',
-            text: `Ocurrió un error. No se pudo obtener los detalles }`,
+            text: `Ocurrió un error, no se pudo obtener el listado del usuario.`,
             icon: 'error',
             confirmButtonText: 'Continuar',
             timer: 6000,
