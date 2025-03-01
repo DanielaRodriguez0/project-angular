@@ -9,12 +9,8 @@ export const routes: Routes = [
         component: LoginComponent
     },
     {
-        path: 'list',
-        component: ListComponent
-    },
-    {
-        path: 'list/:id/details',
-        component: DetailsComponent
+        path: "menu",
+        loadChildren: () => import('./pages/menu.routes').then((c) => c.MENU_ROUTES)
     },
     {
         path: '',
