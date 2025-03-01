@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
-import { LayoutComponent } from './shared/layout/layout.component';
+import { ListComponent } from './pages/list/list.component';
+import { DetailsComponent } from './pages/details/details.component';
 import { LoginComponent } from './pages/authentication/login/login.component';
 
 export const routes: Routes = [
@@ -8,17 +9,16 @@ export const routes: Routes = [
         component: LoginComponent
     },
     {
-        path: "**",
-        redirectTo: 'login'
+        path: 'list',
+        component: ListComponent
+    },
+    {
+        path: 'list/:id/details',
+        component: DetailsComponent
+    },
+    {
+        path: '',
+        redirectTo: 'login',
+        pathMatch: 'full'
     }
 ];
-/* {
-    path: "",
-    component: LayoutComponent,
-    children: [
-        {
-            path: "login",
-            component: LoginComponent
-        }
-    ]
-} */

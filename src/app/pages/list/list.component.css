@@ -1,0 +1,25 @@
+#container {
+    margin-top: 50px;
+    height: 100vh;
+}
+
+#list-title {
+    font-size: 20px;
+    padding-left: 30px;
+}
+
+.flex-col {
+    padding: 20px 60px 0 60px;
+}
+
+th {
+    font-size: medium;
+    font-weight: bold;
+    color: black !important;
+}
+
+td {
+    color: black !important
+}
+/* font-size: medium;
+font-size: large; */
