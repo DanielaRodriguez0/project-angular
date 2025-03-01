@@ -10,18 +10,25 @@
                 <h3 class="font-bold text-2xl text-gray-900 text-center" id="login-title">Iniciar sesión</h3>
             </div>
             <div class="space-y-6">
-                <div class="">
+                <form class="space-y-6" action="#" method="POST" [formGroup]="loginForm">
+
+                
+                <div>
+                    <label class="block text-sm/6 font-medium text-gray-700">API Key</label>
                     <input type="text"
+                    formControlName="api_key"
                         class="w-full text-sm px-4 py-3 bg-gray-200 focus:bg-gray-100 border border-gray-200 rounded-lg focus:outline-none focus:border-purple-400"
-                        type="" placeholder="API key" />
+                        type="" placeholder="API key" 
+                    />
                 </div>
 
                 <div class="login-btn-container">
-                    <button (click)="onSubmit()" type="submit"
+                    <button (click)="login()" type="submit"
                         class="w-full flex justify-center bg-purple-800 hover:bg-purple-700 text-gray-100 p-3 rounded-lg tracking-wide font-semibold cursor-pointer transition ease-in duration-500 login-btn">
                         Iniciar sesion
                     </button>
                 </div>
+            </form>
             </div>
         </div>
     </div>

@@ -19,10 +19,6 @@ export class DetailsComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this._fetchDetails();
-    console.log('id: ', this.id);
-    console.log('data: ', this.detailsData );
-    
-    
   }
 
   private _fetchDetails(): void {
@@ -30,14 +26,12 @@ export class DetailsComponent implements OnInit, OnDestroy {
       .getDetailsById(this.id)
       .pipe(take(1))
       .subscribe({
-        next: (response: {state: Detail}) => {
+        next: (response: { state: Detail }) => {
           this.detailsData = response.state;
-          console.log('Si llegaron los detalles: ', this.detailsData );
-          
         },
         error: (error) => {
-          console.error('Error al mostrar los detalles', error)
-        }
+          console.error('Error al mostrar los detalles', error);
+        },
       });
   }
 

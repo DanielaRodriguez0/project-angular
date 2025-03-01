@@ -1,6 +1,5 @@
 #container {
     margin-top: 50px;
-    height: 100vh;
 }
 
 #list-title {
@@ -21,5 +20,3 @@ th {
 td {
     color: black !important
 }
-/* font-size: medium;
-font-size: large; */

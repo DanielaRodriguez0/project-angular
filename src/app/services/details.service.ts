@@ -1,20 +1,25 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
-import { Observable, tap } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Detail } from '../core/detail';
+import { AuthService } from './auth.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class DetailsService {
-
-  private detailsUrl = `${environment.apiUrl}/v1/rest/anonimizacion`;
+  private detailsUrl = `${environment.apiUrl}/anonimizacion`;
   private _httpClient: HttpClient = inject(HttpClient);
-  token = 'eyJhbGciOiJIUzIIkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwTUxNjIzOTAyMn0.zF6BNAm1MEDDSGh-tV8D1gi_QXf0Itf4BEQxxE'
+  private readonly authService: AuthService = inject(AuthService);
+  token = this.authService.isAuthenticated();
 
-  getDetailsById(id: string): Observable<{state: Detail}> {
-    const headers = new HttpHeaders({ 'Authorization': `Bearer ${this.token}` }); 
-    return this._httpClient.get<{state: Detail}>(`${this.detailsUrl}/${id}`, {headers} )
+  getDetailsById(id: string): Observable<{ state: Detail }> {
+    console.log('Desde el servicio details: ', this.token);
+
+    const headers = new HttpHeaders({ Authorization: `Bearer ${this.token}` });
+    return this._httpClient.get<{ state: Detail }>(`${this.detailsUrl}/${id}`, {
+      headers,
+    });
   }
 }

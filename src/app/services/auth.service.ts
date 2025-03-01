@@ -7,36 +7,37 @@ import { environment } from '../../environments/environment';
   providedIn: 'root',
 })
 export class AuthService {
-  private loginUrl = `${environment.apiUrl}/api/login`;
+  private loginUrl = `${environment.apiUrl}/auth/authenticate`;
   private _httpClient: HttpClient = inject(HttpClient);
   private tokenKey = 'authToken';
 
-  login(user: string, password: string): Observable<any> {
-    return this._httpClient.post<any>(this.loginUrl, { user, password }).pipe(
-      tap((response) => {
-        if (response.token) {
-          console.log('Token: ', response.token);
-        }
-      })
-    );
+  login(apiKey: string): Observable<any> {
+    return this._httpClient
+      .post<any>(`${this.loginUrl}?api_key=${apiKey}`, null)
+      .pipe(
+        tap((response) => {
+          if (response.token) {
+            this.setToken(response.token);
+          }
+        })
+      );
   }
 
   private setToken(token: string): void {
-    localStorage.setItem(this.tokenKey, token)
+    localStorage.setItem(this.tokenKey, token);
   }
 
   private getToken(): string | null {
-    return localStorage.getItem(this.tokenKey);
+    return localStorage ? localStorage.getItem(this.tokenKey) : '';
   }
 
-  isAuthenticated(): boolean {
+  isAuthenticated(): string | null {
     const token = this.getToken();
 
-    if (!token) { return false;}
+    if (!token) {
+      console.error('Ususario no autenticado');
+    }
 
-    const payload = JSON.parse(atob(token.split('.')[1]));
-
-    const expirationTime = payload.exp * 1000;
-    return Date.now() < expirationTime
+    return token;
   }
 }
