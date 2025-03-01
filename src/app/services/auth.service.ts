@@ -10,6 +10,7 @@ export class AuthService {
   private loginUrl = `${environment.apiUrl}/auth/authenticate`;
   private _httpClient: HttpClient = inject(HttpClient);
   private tokenKey = 'authToken';
+  #authUsername: string = 'authUser' ;
 
   login(apiKey: string): Observable<any> {
     return this._httpClient
@@ -18,6 +19,7 @@ export class AuthService {
         tap((response) => {
           if (response.token) {
             this.setToken(response.token);
+            this.setUsername(response.user);
           }
         })
       );
@@ -27,8 +29,16 @@ export class AuthService {
     localStorage.setItem(this.tokenKey, token);
   }
 
+  private setUsername(username: string): void {
+    localStorage.setItem(this.#authUsername, username);
+  }
+
   private getToken(): string | null {
     return localStorage ? localStorage.getItem(this.tokenKey) : '';
+  }
+
+  public getUsername(): string | null {
+    return localStorage ? localStorage.getItem(this.#authUsername) : '';
   }
 
   isAuthenticated(): string | null {

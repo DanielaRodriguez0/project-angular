@@ -22,3 +22,17 @@ interface Referencia {
     nombre_bucket: string
     proveedor_almacenamiento: string
 }
+
+
+export interface Solicitud {
+  error: string | null
+  estado: string
+  fecha_solicitud: Date
+  fecha_ultima_actualizacion: Date
+  id: string
+  id_solicitud: string
+  metadatos: Metadatos
+  referencia_entrada: Referencia
+  referencia_salida: string | null
+  resultado: string | null
+}
