@@ -36,7 +36,7 @@ export class ListComponent {
             confirmButtonText: 'Continuar',
             timer: 6000,
           });
-          console.error('Error al mostrar los detalles', error);
+          console.error('Error al listar ', error);
         },
       });
   }
